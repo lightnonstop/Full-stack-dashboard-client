@@ -60,7 +60,7 @@ export const tokensDark = {
   export const tokensLight = reverseTokens(tokensDark);
   
   // mui theme settings
-  export const themeSettings = (mode: 'dark' | 'light') => {
+  export const themeSettings = (mode: string) => {
     return {
       palette: {
         mode: mode,
