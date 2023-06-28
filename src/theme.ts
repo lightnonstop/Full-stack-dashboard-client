@@ -1,4 +1,3 @@
-import { PaletteMode } from "@mui/material";
 
 // color design tokens export
 export const tokensDark = {
