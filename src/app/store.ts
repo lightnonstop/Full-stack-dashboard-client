@@ -1,5 +1,5 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit'
-import globalReducer from '../state/index'
+import globalReducer from '../state/state'
 export const store = configureStore({
     reducer: {
       global: globalReducer,
