@@ -104,7 +104,7 @@ function Sidebar({ isNonMobile, drawerWidth, isSidebarOpen, setIsSidebarOpen }: 
                                         TEAGO
                                     </Typography>
                                 </Box>
-                                {isNonMobile && (
+                                {!isNonMobile && (
                                     <IconButton onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
                                         <ChevronLeft />
                                     </IconButton>
