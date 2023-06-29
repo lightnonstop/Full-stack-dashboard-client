@@ -10,6 +10,10 @@ interface NavbarProps{
 function Navbar({ isSidebarOpen, setIsSidebarOpen }: NavbarProps) {
     const dispatch = useAppDispatch()
     const theme = useTheme()
+    const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null)
+    const isOpen = Boolean(anchorEl);
+    const handleClick = (e) => setAnchorEl(e.currentTarget);
+    const handleClose = () => setAnchorEl(null);
   return (
     <AppBar sx={{ position: 'static', background: 'none', boxShadow: 'none' }}>
         <Toolbar sx={{ justifyContent: 'space-between' }}>
