@@ -46,7 +46,7 @@ const Product = ({ _id, name, description, price, rating, category, supply, stat
         size='small'
         onClick={() => setIsExpanded(!isExpanded)}
         >
-          See More
+          {isExpanded ? 'View Less' : 'View More'}
         </Button>
       </CardActions>
       <Collapse
