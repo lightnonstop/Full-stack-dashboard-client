@@ -2,8 +2,10 @@ import { Box } from "@mui/material";
 import Header from "../../components/Header";
 import { useGetCustomersQuery } from "../../state/api"
 import { DataGrid } from "@mui/x-data-grid";
+import { useTheme } from "@emotion/react";
 
 function Customers() {
+  const theme = useTheme();
   const { data, isLoading } = useGetCustomersQuery();
   console.log("🚀 ~ file: Customers.tsx:5 ~ Customers ~ data:", data)
   const columns = [
@@ -46,49 +48,41 @@ function Customers() {
       flex: 0.5,
     },
   ]
-  const rows = [
-    {
-      // city: "Zhanghekou",
-      country: "CN",
-      // createdAt: "2023-06-28T16:34:46.879Z",
-      email: "mdonlon1@hostgator.com",
-      name: "Marilyn",
-      occupation: "Food Chemist",
-      phoneNumber: "9981906117",
-      role: "user",
-      // state: null,
-      // transactions: ['63701d74f03239b7f7000027', '63701d74f03239db69000153', ,'63701d74f03239569400002d', '63701d74f032394c4900014b'],
-      // updatedAt: "2023-06-28T16:34:46.879Z",
-      // __v: 0,
-      _id: "63701cc1f03239c72c000180",
-    },
-    {
-      // city: "Zhanghekou",
-      country: "CN",
-      // createdAt: "2023-06-28T16:34:46.879Z",
-      email: "mdonlon1@hostgator.com",
-      name: "Marilyn",
-      occupation: "Food Chemist",
-      phoneNumber: "9981906117",
-      role: "user",
-      // state: null,
-      // transactions: ['63701d74f03239b7f7000027', '63701d74f03239db69000153', ,'63701d74f03239569400002d', '63701d74f032394c4900014b'],
-      // updatedAt: "2023-06-28T16:34:46.879Z",
-      // __v: 0,
-      _id: "63701ccd1f03239c72c000180",
-    }
-  ]
   return (
     <Box m='1.5rem 2.5rem'>
       <Header title="CUSTOMERS" subtitle="List of Customers" />
       <Box 
       mt='40px'
       height='75vh'
+      sx={{ 
+        '& .MuiDataGrid-root': {
+          border: 'none'
+        },
+        '& .MuiDataGrid-cell': {
+          borderBottom: 'none'
+        },
+        '& .MuiDataGrid-columnHeaders': {
+          backgroundColor: theme.palette.background.alt,
+          color: theme.palette.secondary[100],
+          borderBottom: 'none'
+        },
+        '& .MuiDataGrid-virtualScroller': {
+          backgroundColor: theme.palette.primary.light,
+        },
+        '& .MuiDataGrid-footerContainer': {
+          backgroundColor: theme.palette.background.alt,
+          color: theme.palette.secondary[100],
+          borderTop: 'none'
+        },
+        '& .MuiDataGrid-toolbarContainer .MuiDataGrid-text': {
+          color: `${theme.palette.secondary[200]} !important`,
+        },
+       }}
       >
         <DataGrid
         loading={isLoading || !data}
         getRowId={(row) => row._id}
-        rows={rows || []}
+        rows={data || []}
         columns={columns}
          />
       </Box>
