@@ -76,6 +76,7 @@ function Products() {
           <Box mt='20px' display='grid' gridTemplateColumns='repeat(4, minmax(0, 1fr))' justifyContent='space-between' rowGap='20px' columnGap='1.33%' sx={{ '& > div': { gridColumn: isNonMobile ? undefined : 'span 4' } }}>
             {data.map(({ _id, name, description, price, rating, category, supply, stat }: ProductProps) => (
               <Product 
+              key={_id} 
               _id={_id}
               name={name}
               description={description}
