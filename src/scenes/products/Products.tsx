@@ -11,7 +11,10 @@ interface ProductProps{
   rating: string
   category: string
   supply: string
-  stat: string
+  stat: { 
+    yearlySalesTotal: string
+    yearlyTotalSoldUnits: string
+  }
 }
 const Product = ({ _id, name, description, price, rating, category, supply, stat, }: ProductProps) => {
   const theme = useTheme();
