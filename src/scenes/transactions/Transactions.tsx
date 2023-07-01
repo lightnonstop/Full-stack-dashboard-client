@@ -12,7 +12,7 @@ function Transactions() {
   // Query values to be sent to the backend
   const [page, setPage] = useState<number>(0)
   const [pageSize, setPageSize] = useState<number>(20)
-  const [sort, setSort] = useState<object>({})
+  const [sort, setSort] = useState<object>()
   const [search, setSearch] = useState<string>('')
   const [searchInput, setSearchInput] = useState<string>('')
 
@@ -22,7 +22,6 @@ function Transactions() {
     sort: JSON.stringify(sort),
     search,
   })
- 
   const columns = [
     {
       field: '_id',
@@ -52,7 +51,9 @@ function Transactions() {
       flex: 1,
       renderCell: (params) => `$${Number(params.value).toFixed(2)}`
     },
-  ]  
+  ] 
+  console.log(data);
+  
   return (
     <Box m='1.5rem 2.5rem'>
       <Header title="TRANSACTIONS" subtitle='Entire list of transactions' />
@@ -88,14 +89,16 @@ function Transactions() {
         getRowId={(row) => row._id}
         rows={(data && data.transactions) || []}
         columns={columns}
-        rowCount={(data && data.total) || 0}
-        pagination
-        page={page}
-        pageSize={pageSize}
+        rowCount={500}
+        pageSizeOptions={[20, 50, 100]}
+        paginationModel={{
+          pageSize,
+          page
+        }}
         paginationMode="server"
+        onPaginationModelChange={(newModel) => { setPage(newModel.page); setPageSize(newModel.pageSize) }}
         sortingMode="server"
-        onPaginationModelChange={(newPage) => setPageSize(newPage)}
-        onSortModelChange={(newSortModel) => setSort(...newSortModel)}
+        onSortModelChange={(newSortModel) => setSort(newSortModel)}
         slots={{ toolbar: DataGridCustomToolbar }}
         slotProps={{ toolbar: { setSearch, setSearchInput, searchInput } }}
          />
