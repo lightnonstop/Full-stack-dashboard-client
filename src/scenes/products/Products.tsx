@@ -60,8 +60,8 @@ const Product = ({ _id, name, description, price, rating, category, supply, stat
         <CardContent>
           <Typography>id: {_id}</Typography>
           <Typography>Supply Left: {supply}</Typography>
-          <Typography>Yearly Sales This Year: {stat.yearlySalesTotal}</Typography>
-          <Typography>Yearly Units Sold This Year: {stat.yearlyTotalSoldUnits}</Typography>
+          <Typography>Yearly Sales This Year: {stat[0].yearlySalesTotal}</Typography>
+          <Typography>Yearly Units Sold This Year: {stat[0].yearlyTotalSoldUnits}</Typography>
         </CardContent>
       </Collapse>
     </Card>
