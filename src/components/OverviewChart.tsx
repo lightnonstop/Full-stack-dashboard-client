@@ -44,47 +44,48 @@ function OverviewChart({ isDashboard = false, view }) {
     },
       { sales: 0, units: 0 }
     );
+    return [[totalSalesLine], [totalUnitsLine]];
+    
     // eslint-disable-next-line react-hooks/exhaustive-deps
-		return [[totalSalesLine], [totalUnitsLine]];
   }, [data])
 
   if (!data || isLoading) return <>Loading...</>
   return (
     <ResponsiveLine
-      data={view === 'sales' ? totalSalesLine : totalUnitsLine}
+      data={view === 'sales' ? twotalSalesLine : totalUnitsLine}
       theme={{
         axis: {
-          domain: {
-            line: {
-              stroke: theme.palette.secondary[200]
-            }
-          },
-          legend: {
-            text: {
-              fill: theme.palette.secondary[200]
-            }
-          }
-        },
-        ticks: {
-          line: {
-            stroke: theme.palette.secondary[200],
-            strokeWidth: 1,
-          },
-          text: {
-            fill: theme.palette.secondary[200]
-          }
+            domain: {
+                line: {
+                    stroke: theme.palette.secondary[200]
+                }
+            },
+            legend: {
+                text: {
+                    fill: theme.palette.secondary[200]
+                }
+            },
+            ticks: {
+                line: {
+                    stroke: theme.palette.secondary[200],
+                    strokeWidth: 1,
+                },
+                text: {
+                    fill: theme.palette.secondary[200]
+                },
+            },
         },
         legends: {
-          text: {
-            fill: theme.palette.secondary[200],
-          },
+            text: {
+                fill: theme.palette.secondary[200],
+            },
         },
         tooltip: {
-          container: {
-            color: theme.palette.primary.main,
-          }
+            container: {
+                color: theme.palette.primary.main,
+            }
         }
-      }}
+    }}
       margin={{ top: 20, right: 50, bottom: 50, left: 70 }}
       xScale={{ type: 'point' }}
       yScale={{
@@ -108,7 +109,7 @@ function OverviewChart({ isDashboard = false, view }) {
         tickPadding: 5,
         tickRotation: 0,
         legend: isDashboard ? '' : 'Month',
-        legendOffset: -60,
+        legendOffset: 36,
         legendPosition: 'middle',
       }}
       axisLeft={{
@@ -117,7 +118,7 @@ function OverviewChart({ isDashboard = false, view }) {
         tickPadding: 5,
         tickRotation: 0,
         legend: isDashboard ? '' : `Total ${view === 'sales' ? 'Revenue' : 'Units'} for Year`,
-        legendOffset: 36,
+        legendOffset: -60,
         legendPosition: 'middle',
       }}
       enableGridX={false}
