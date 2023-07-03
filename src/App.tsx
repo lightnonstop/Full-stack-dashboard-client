@@ -10,6 +10,7 @@ import Products from './scenes/products/Products'
 import Customers from './scenes/customers/Customers'
 import Transactions from './scenes/transactions/Transactions'
 import Geography from './scenes/geography/Geography'
+import Overview from './scenes/overview/Overview'
 function App() {
   const mode = useAppSelector((state) => state.global.mode)
   const theme = useMemo(() => createTheme(themeSettings(mode)), [mode])
