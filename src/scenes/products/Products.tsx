@@ -28,7 +28,7 @@ const Product = ({ _id, name, description, price, rating, category, supply, stat
       }}
     >
       <CardContent>
-        <Typography sx={{ fontSize: 14 }} color={theme.palette.secondary[700]} gutterBottom>
+        <Typography sx={{ fontSize: 14, textTransform: 'capitalize' }} color={theme.palette.secondary[700]} gutterBottom>
           {category}
         </Typography>
         <Typography variant="h5" component='div'>
@@ -71,14 +71,13 @@ const Product = ({ _id, name, description, price, rating, category, supply, stat
 function Products() {
     const { data, isLoading } =  useGetProductsQuery();
     const isNonMobile = useMediaQuery('(min-width: 1000px)');
-    console.log("🚀 ~ file: Products.tsx:7 ~ Products ~ data:", data)
   return (
     <Box m='1.5rem 2.5rem'>
         <Header title='PRODUCTS' subtitle='See your list of products.' />
         {data || !isLoading ? (
           <Box mt='20px' display='grid' gridTemplateColumns='repeat(4, minmax(0, 1fr))' justifyContent='space-between' rowGap='20px' columnGap='1.33%' sx={{ '& > div': { gridColumn: isNonMobile ? undefined : 'span 4' } }}>
             {data.map(({ _id, name, description, price, rating, category, supply, stat }: ProductProps) => (
-              <Product 
+              <Product
               key={_id} 
               _id={_id}
               name={name}
