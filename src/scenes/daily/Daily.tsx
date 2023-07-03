@@ -9,7 +9,7 @@ function Daily() {
     const [startDate, setStartDate] = useState<Date>(new Date());
     const [endDate, setEndDate] = useState<Date>(new Date('2023-07-03'));
     const theme = useTheme()
-    const { data, isLoading } = useGetSalesQuery();
+    const { data } = useGetSalesQuery();
 
     const [formattedData] = useMemo(() => {
         if (!data) return [];
