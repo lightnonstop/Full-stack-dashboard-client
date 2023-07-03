@@ -52,7 +52,7 @@ function OverviewChart({ isDashboard = false, view }) {
   if (!data || isLoading) return <>Loading...</>
   return (
     <ResponsiveLine
-      data={view === 'sales' ? twotalSalesLine : totalUnitsLine}
+      data={view === 'sales' ? totalSalesLine : totalUnitsLine}
       theme={{
         axis: {
             domain: {
