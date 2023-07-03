@@ -51,7 +51,7 @@ function Transactions() {
       flex: 1,
       renderCell: (params) => `$${Number(params.value).toFixed(2)}`
     },
-  ] 
+  ]
   
   return (
     <Box m='1.5rem 2.5rem'>
