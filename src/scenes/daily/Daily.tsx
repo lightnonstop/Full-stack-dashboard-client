@@ -56,7 +56,19 @@ function Daily() {
             <Box height='75vh'>
                 <Box display='flex' justifyContent='flex-end'>
                     <DatePicker 
-
+                        selected={startDate}
+                        onChange={(date: SetStateAction<Date>) => setStartDate(date)}
+                        selectsStart
+                        startDate={startDate}
+                        endDate={endDate}
+                    />
+                    <DatePicker 
+                        selected={endDate}
+                        onChange={(date: SetStateAction<Date>) => setEndDate(date)}
+                        selectsEnd
+                        startDate={startDate}
+                        endDate={endDate}
+                        minDate={startDate}
                     />
                 </Box>
             </Box>
