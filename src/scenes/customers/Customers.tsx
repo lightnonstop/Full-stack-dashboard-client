@@ -7,7 +7,7 @@ import { useTheme } from "@emotion/react";
 function Customers() {
   const theme = useTheme();
   const { data, isLoading } = useGetCustomersQuery();
-  console.log("🚀 ~ file: Customers.tsx:5 ~ Customers ~ data:", data)
+ 
   const columns = [
     {
       field: '_id',
