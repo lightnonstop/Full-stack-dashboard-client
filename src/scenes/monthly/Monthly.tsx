@@ -95,7 +95,7 @@ function Monthly() {
                             stacked: false,
                             reverse: false,
                         }}
-                        curve="catmullRom"
+                        // curve="catmullRom"
                         yFormat=' >-.2f'
                         axisTop={null}
                         axisRight={null}
