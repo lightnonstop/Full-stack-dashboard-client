@@ -54,7 +54,7 @@ function Monthly() {
 
     return (
         <Box m='1.5rem 2.5rem'>
-            <Header title='DAILY SALES' subtitle="Chart of daily sales." />
+            <Header title='MONTHLY SALES' subtitle="Chart of monthly sales." />
             <Box height='75vh'>
                 <Box display='flex' justifyContent='flex-end'>
                     <DatePicker
