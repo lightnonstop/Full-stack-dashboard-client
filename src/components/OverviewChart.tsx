@@ -96,6 +96,7 @@ function OverviewChart({ isDashboard = false, view }) {
         reverse: false,
       }}
       curve="catmullRom"
+      enableArea={isDashboard}
       yFormat=' >-.2f'
       axisTop={null}
       axisRight={null}
