@@ -6,8 +6,8 @@ import { Box, useTheme } from '@mui/material';
 import Header from '../../components/Header';
 import { ResponsiveLine } from '@nivo/line';
 function Daily() {
-    const [startDate, setStartDate] = useState<Date>(new Date());
-    const [endDate, setEndDate] = useState<Date>(new Date('2023-07-03'));
+    const [startDate, setStartDate] = useState<Date>(new Date('2021-02-01'));
+    const [endDate, setEndDate] = useState<Date>(new Date('2021-03-01'));
     const theme = useTheme()
     const { data } = useGetSalesQuery();
 
@@ -51,6 +51,8 @@ function Daily() {
 
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [data, startDate, endDate])
+
+    // if (data.dailyData) console.log(formattedData);    
 
     return (
         <Box m='1.5rem 2.5rem'>
@@ -124,10 +126,6 @@ function Daily() {
                         axisTop={null}
                         axisRight={null}
                         axisBottom={{
-                            format: (v) => {
-                                if (isDashboard) return v.slice(0, 3)
-                                return v;
-                            },
                             orient: 'bottom',
                             tickSize: 5,
                             tickPadding: 5,
@@ -155,11 +153,11 @@ function Daily() {
                         useMesh={true}
                         legends={[
                             {
-                                anchor: 'bottom-right',
+                                anchor: 'top-right',
                                 direction: 'column',
                                 justify: false,
-                                translateX: 30,
-                                translateY: -40,
+                                translateX: 50,
+                                translateY: 0,
                                 itemsSpacing: 0,
                                 itemDirection: 'left-to-right',
                                 itemWidth: 80,
